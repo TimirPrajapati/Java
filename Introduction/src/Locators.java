@@ -6,7 +6,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Locators {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 		WebDriver driver = new ChromeDriver();
 		// implicit wait -- 5 seconds time out.
@@ -17,6 +17,7 @@ public class Locators {
 		driver.findElement(By.className("signInBtn")).click();
 		System.out.println(driver.findElement(By.cssSelector("p.error")).getText());
 		driver.findElement(By.linkText("Forgot your password?")).click();
+		Thread.sleep(1000); // 1000 means 1 second it waits.
 		driver.findElement(By.xpath("//input[@placeholder='Name']")).sendKeys("Jack");
 		driver.findElement(By.cssSelector("input[placeholder='Email']")).sendKeys("john@rsa.com");
 		driver.findElement(By.xpath("//input[@type='text'][2]")).clear();
